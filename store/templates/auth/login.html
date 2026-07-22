@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopSphere Login</title>
+
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <!-- Left Side -->
+
+    <div class="left-panel">
+
+        <img src="{% static 'images/auth/login-banners.jpg' %}"
+             alt="ShopSphere">
+
+    </div>
+
+    <!-- Right Side -->
+
+    <div class="right-panel">
+
+        <div class="login-box">
+
+            <div class="brand">
+            <i class="bi bi-bag-fill"></i>
+            <span>ShopSphere</span>
+            </div>
+
+        <h1>Welcome Back</h1>
+        <p class="subtitle">
+            Sign in to explore exclusive deals,
+            secure checkout and faster shopping.
+        </p>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-danger{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <!-- Username -->
+
+                <div class="input-box">
+
+                    <i class="bi bi-person-fill"></i>
+
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter Username"
+                        required>
+
+                </div>
+
+                <!-- Password -->
+
+                <div class="input-box">
+
+                    <i class="bi bi-lock-fill"></i>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter Password"
+                        required>
+
+                    <span class="toggle-password"
+                          onclick="togglePassword()">
+
+                        <i class="bi bi-eye-fill"></i>
+
+                    </span>
+
+                </div>
+
+                <div class="options">
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Remember Me
+
+                    </label>
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="login-btn">
+
+                    <i class="bi bi-box-arrow-in-right"></i>
+
+                    Login
+
+                </button>
+
+            </form>
+
+            <div class="register">
+
+                Don't have an account?
+
+                <a href="{% url 'register' %}">
+                    Create Account
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function togglePassword(){
+
+    let password = document.getElementById("password");
+
+    if(password.type === "password"){
+
+        password.type = "text";
+
+    }
+
+    else{
+
+        password.type = "password";
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>

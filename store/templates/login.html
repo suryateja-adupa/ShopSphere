@@ -1,0 +1,136 @@
+{% extends 'auth_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="login-page">
+
+    <div class="login-container">
+
+        <div class="left-panel">
+
+            <img src="{% static 'images/auth/login-banner.jpg' %}" alt="Shopping">
+
+            <div class="brand">
+
+                <h1>SHOPSPHERE</h1>
+
+                <h2>Shop</h2>
+
+                <p class="active-menu">New Arrivals</p>
+
+                <ul>
+                    <li>Women</li>
+                    <li>Men</li>
+                    <li>Shoes</li>
+                    <li>Bags</li>
+                    <li>Accessories</li>
+                </ul>
+
+            </div>
+
+            <!-- LOGIN FORM OVER IMAGE -->
+
+            <div class="right-panel">
+
+                <div class="close-btn">
+                    ✕
+                </div>
+
+                <h1>Welcome Back!</h1>
+
+                <p class="subtitle">
+                    Login to your account
+                </p>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <div class="input-group">
+
+        <span class="icon">
+            <i class="bi bi-person-fill"></i>
+        </span>
+
+        <input type="text"
+               name="username"
+               placeholder="Username"
+               required>
+
+    </div>
+
+    <div class="input-group">
+
+        <span class="icon">
+            <i class="bi bi-lock-fill"></i>
+        </span>
+
+        <input type="password"
+               id="password"
+               name="password"
+               placeholder="Password"
+               required>
+
+        <span class="eye" onclick="togglePassword()">
+            <i class="bi bi-eye-fill"></i>
+        </span>
+
+    </div>
+
+    <div class="remember-forgot">
+
+        <label>
+
+            <input type="checkbox">
+
+            Remember Me
+
+        </label>
+
+        <a href="#">Forgot?</a>
+
+    </div>
+
+    <button type="submit">
+        LOGIN
+    </button>
+
+</form>
+                <div class="social">
+
+                    <p>or continue with</p>
+
+                    <div class="icons">
+
+                        <a href="#">G</a>
+
+                        <a href="#">f</a>
+
+                        <a href="#"></a>
+
+                    </div>
+
+                </div>
+
+                <div class="register-link">
+
+                    Don't have an account?
+
+                    <a href="{% url 'register' %}">
+
+                        Register Now
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

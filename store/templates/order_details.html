@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">
+        📦 Order #{{ order.id }}
+    </h2>
+
+    <div class="card shadow p-4">
+
+        <h5>Order Status</h5>
+
+        <p class="text-success">
+            {{ order.status }}
+        </p>
+
+        <hr>
+
+        <table class="table table-bordered">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th>Product</th>
+
+                    <th>Price</th>
+
+                    <th>Quantity</th>
+
+                    <th>Subtotal</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for item in order_items %}
+
+                <tr>
+
+                    <td>{{ item.product.name }}</td>
+
+                    <td>₹{{ item.price }}</td>
+
+                    <td>{{ item.quantity }}</td>
+
+                    <td>
+                        ₹{% widthratio item.price 1 item.quantity %}
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        <h4 class="text-end text-success">
+
+            Total : ₹{{ order.total_price }}
+
+        </h4>
+
+    </div>
+
+</div>
+
+{% endblock %}

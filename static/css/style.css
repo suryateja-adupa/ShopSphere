@@ -1,0 +1,193 @@
+.card{
+    transition: 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 30px rgba(0,0,0,0.2);
+}
+
+.card img{
+    height:250px;
+    object-fit:cover;
+    transition:0.4s ease;
+}
+
+.card:hover img{
+    transform:scale(1.05);
+}
+
+/* Hero Section */
+
+.hero-section{
+    background:url("../images/banner.jpg") center center/cover;
+    height:550px;
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.hero-overlay{
+    background:rgba(0,0,0,.55);
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-section h1{
+    animation:slideDown 1s;
+}
+
+.hero-section p{
+    animation:fadeUp 1.3s;
+}
+
+.hero-section .btn{
+    animation:fadeUp 1.6s;
+    transition:.4s;
+}
+
+.hero-section .btn:hover{
+    transform:scale(1.08);
+}
+
+/* Buttons */
+
+.btn{
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.03);
+}
+
+/* Footer */
+
+footer .d-flex a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+}
+
+/* Smooth Scroll */
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* Animations */
+
+@keyframes slideDown{
+    from{
+        transform:translateY(-80px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        transform:translateY(40px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+/* ===========================
+   Mobile Responsive
+=========================== */
+
+@media (max-width:768px){
+
+    .hero-section{
+        height:420px;
+        border-radius:15px;
+    }
+
+    .hero-section h1{
+        font-size:2.3rem;
+    }
+
+    .hero-section p{
+        font-size:18px;
+        padding:0 15px;
+    }
+
+    .hero-section .btn{
+        font-size:18px;
+        padding:10px 25px;
+    }
+
+    .card img{
+        height:220px;
+    }
+
+    footer{
+        text-align:center;
+    }
+
+    footer .d-flex{
+        justify-content:center;
+    }
+
+}
+
+.creator-badge{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #212529;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 6px 15px rgba(0,0,0,.25);
+    z-index: 9999;
+    opacity: .9;
+    transition: .3s;
+}
+
+.creator-badge:hover{
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+    .creator-badge{
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        text-align: center;
+        font-size: 11px;
+        padding: 8px 10px;
+        border-radius: 12px;
+    }
+
+    .creator-badge small{
+        display: block;
+        margin-top: 2px;
+    }
+
+}
+
+/* Hide Microsoft Edge password reveal button */
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
+}
+
+input[type="password"]::-ms-reveal {
+    display: none;
+}
