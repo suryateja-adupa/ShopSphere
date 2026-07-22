@@ -9,7 +9,7 @@ class Command(BaseCommand):
 
         Product.objects.all().delete()
 
-        men = Category.objects.get(name="Men")
+        men, _ = Category.objects.get_or_create(name="Men")
 
         products = [
 
@@ -95,7 +95,7 @@ class Command(BaseCommand):
 
         ]
 
-        women = Category.objects.get(name="Women")
+        women, _ = Category.objects.get_or_create(name="Women")
 
         products.extend([
 
@@ -181,7 +181,7 @@ class Command(BaseCommand):
 
         ])
 
-        footwear = Category.objects.get(name="Footwear")
+        footwear, _ = Category.objects.get_or_create(name="Footwear")
 
         products.extend([
 
@@ -251,7 +251,7 @@ class Command(BaseCommand):
 
 
         ])
-        watches = Category.objects.get(name="Watches")
+        watches, _ = Category.objects.get_or_create(name="Watches")
 
         products.extend([
 
@@ -321,7 +321,7 @@ class Command(BaseCommand):
 
         ])
 
-        electronics = Category.objects.get(name="Electronics")
+        electronics, _ = Category.objects.get_or_create(name="Electronics")
 
         products.extend([
 
@@ -399,7 +399,7 @@ class Command(BaseCommand):
 
         ])
 
-        bags = Category.objects.get(name="Bags")
+        bags, _ = Category.objects.get_or_create(name="Bags")
 
         products.extend([
 
