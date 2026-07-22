@@ -89,11 +89,19 @@
 
             <div class="card shadow-sm border-0 h-100">
 
-                <img
-                    src="{{ product.image.url }}"
-                    class="card-img-top rounded-top"
-                    alt="{{ product.name }}"
-                    style="height:280px; object-fit:cover;">
+                {% if product.image %}
+                    <img
+                        src="{{ product.image.url }}"
+                        class="card-img-top rounded-top"
+                        alt="{{ product.name }}"
+                        style="height:280px; object-fit:cover;">
+                    {% else %}
+                    <img
+                        src="{% static 'images/banner.jpg' %}"
+                        class="card-img-top rounded-top"
+                        alt="No Image"
+                        style="height:280px; object-fit:cover;">
+                    {% endif %}
 
                 <div class="card-body text-center d-flex flex-column">
 
